@@ -11,29 +11,31 @@
         <form action="/hello-input/hello-result" th:object="${questForm}" method="post">
 
         <label for="name">名前:</label>
-        <input type="text" id="name" th:field="*{name}" required><br><br>
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+        <input type="text" id="name" th:field="*{name}" ><br><br>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"style="color:red">エラー</span><br>
         <label for="email">メール:</label>
-        <input type="email" id="email" th:field="*{email}" required><br><br>
-        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+        <input type="email" id="email" th:field="*{email}" ><br><br>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"style="color:red">エラー</span><br>
         <label>性別:</label>
         <input type="radio" th:field="*{gender}" value="男"> 男
         <input type="radio" th:field="*{gender}" value="女"> 女<br><br>
-        <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br>
+        <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"style="color:red">エラー</span><br>
         <label>趣味（複数選択）:</label><br>
         <input type="checkbox" th:field="*{sports}" value="野球"> 野球
         <input type="checkbox" th:field="*{sports}" value="サッカー"> サッカー
         <input type="checkbox" th:field="*{sports}" value="テニス"> テニス<br><br>
-        <span th:if="${#fields.hasErrors('sports')}" th:errors="*{sports}"></span><br>
+        <span th:if="${#fields.hasErrors('sports')}" th:errors="*{sports}"style="color:red">エラー</span><br>
         <label for="language">好きな言語:</label>
         <select id="language" th:field="*{language}">
         <option value="java語">java語</option>
         <option value="英語">英語</option>
         <option value="フランス語">フランス語</option>
+        <option value=""></option>
         </select><br><br>
-        <span th:if="${#fields.hasErrors('language')}" th:errors="*{language}"></span><br>
+        <span th:if="${#fields.hasErrors('language')}" th:errors="*{language}"style="color:red">エラー</span><br>
         <label for="other">その他:</label>
         <textarea id="other" th:field="*{other}"></textarea><br><br>
+        <span th:if="${#fields.hasErrors('other')}" th:errors="*{other}"style="color:red">エラー</span><br>
         <button type="submit">送信</button>
     </form>
 </body>

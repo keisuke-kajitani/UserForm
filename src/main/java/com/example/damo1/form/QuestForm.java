@@ -5,6 +5,7 @@ package com.example.damo1.form;
 import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -16,11 +17,11 @@ public class QuestForm {
     private String email;
      @NotNull(message = "性別を選択してください")
     private String gender;
-    @NotNull(message = "趣味を1つ以上選択してください")
+    @NotEmpty(message = "趣味を1つ以上選択してください")
     private List<String> sports;  
     @NotBlank(message = "好きな言語を選んでください")
     private String language;      
-
+    @Size(min = 1, max = 200, message = "コメントは1〜200文字で入力してください")
     private String other;         
 
     

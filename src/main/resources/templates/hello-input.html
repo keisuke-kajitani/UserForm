@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケートフォーム</title>
+</head>
+<body>
+    <h1>アンケートフォーム</h1>
+    
+        <form action="/hello-input/hello-result" th:object="${questForm}" method="post">
+
+        <label for="name">名前:</label>
+        <input type="text" id="name" th:field="*{name}" required><br><br>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+        <label for="email">メール:</label>
+        <input type="email" id="email" th:field="*{email}" required><br><br>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+        <label>性別:</label>
+        <input type="radio" th:field="*{gender}" value="男"> 男
+        <input type="radio" th:field="*{gender}" value="女"> 女<br><br>
+        <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br>
+        <label>趣味（複数選択）:</label><br>
+        <input type="checkbox" th:field="*{sports}" value="野球"> 野球
+        <input type="checkbox" th:field="*{sports}" value="サッカー"> サッカー
+        <input type="checkbox" th:field="*{sports}" value="テニス"> テニス<br><br>
+        <span th:if="${#fields.hasErrors('sports')}" th:errors="*{sports}"></span><br>
+        <label for="language">好きな言語:</label>
+        <select id="language" th:field="*{language}">
+        <option value="java語">java語</option>
+        <option value="英語">英語</option>
+        <option value="フランス語">フランス語</option>
+        </select><br><br>
+        <span th:if="${#fields.hasErrors('language')}" th:errors="*{language}"></span><br>
+        <label for="other">その他:</label>
+        <textarea id="other" th:field="*{other}"></textarea><br><br>
+        <button type="submit">送信</button>
+    </form>
+</body>
+</html>

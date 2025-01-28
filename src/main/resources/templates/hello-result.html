@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケート結果</title>
+</head>
+<body>
+    <h1>アンケート結果</h1>
+
+    <p>名前: <span th:text="${questForm.name}"></span></p>
+    <p>メール: <span th:text="${questForm.email}"></span></p>
+    <p>性別: <span th:text="${questForm.gender}"></span></p>
+    <p>趣味: 
+        <span th:each="sport : ${questForm.sports}" th:text="${sport}"></span>
+    </p>
+    <p>好きな言語: <span th:text="${questForm.language}"></span></p>
+    <p>その他: <span th:text="${questForm.other}"></span></p>
+
+    <a href="/hello-input">戻る</a>
+</body>
+</html>
